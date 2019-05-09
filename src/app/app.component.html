@@ -1,0 +1,45 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <div style="
+            background-image: url(assets/imgs/presentacionMenu/presentacion.png);
+            background-size: 100%;
+            background-position: center 47%;
+            height: 111px;">
+          <img src="assets/imgs/logo/logoT.png" alt="Fry" class="animated myImagen" style="
+          top: 10px !important;
+          left: 9px !important;
+          height: 50px !important;
+          border-radius: 0px !important;
+          width: 48px !important;
+          position: absolute;
+          opacity: 0.3;">
+          <div class="menu-bottom" style="color: #ffffff;
+          font-size: x-large;
+          text-shadow: 1px 1px 3px #171717b5;
+          font-weight: 700;
+          font-family: inherit;
+          margin-left: 4%;
+          margin-top: 26%;
+          position: absolute;">
+            Menu
+          </div>
+        </div>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
