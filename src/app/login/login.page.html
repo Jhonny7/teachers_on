@@ -1,6 +1,6 @@
 <ion-content padding class="animated fadeIn auth-page" style="--background: url(assets/imgs/login/loginFondo.png) no-repeat center center / cover;">
   <div class="divLogo">
-    <img src="assets/imgs/login/helmet.png" alt="">
+    <img src="assets/imgs/logo/logoT.png" alt="">
   </div>
   <div class="bienvenida">
     Bienvenid@
@@ -29,15 +29,18 @@
     <div class="divCheck">
       <ion-item>
         <ion-label>Mantener Sesión Activa</ion-label>
-        <ion-checkbox color="casco" slot="start" formControlName="sesionActiva"></ion-checkbox>
+        <ion-checkbox color="icon" slot="start" formControlName="sesionActiva"></ion-checkbox>
       </ion-item>
 
     </div>
     <div class="credenciales">
-      <ion-button expand="block" color="casco" type="submit">
+      <ion-button expand="block" color="icon" type="submit">
         <ion-icon slot="end" name="log-in"></ion-icon>
         Ingresar
       </ion-button>
+    </div>
+    <div class="register">
+      <div>¿Nuevo en Techers On? <a (click)="goToRegister()">Registrate</a></div>
     </div>
   </form>
 

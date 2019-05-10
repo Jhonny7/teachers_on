@@ -36,6 +36,8 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.statusBar.overlaysWebView(false);
+      this.statusBar.backgroundColorByHexString('#f00');
       //Router to user
       let usuario: any = localStorage.getItem("user");
       let sessionActive: any = localStorage.getItem("sessionActive");
