@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="icon">
+    <ion-title>{{operation}} Curso</ion-title>
+    <ion-buttons slot="start" *ngIf="!plataforma">
+      <ion-button (click)="cancelar()" style="color:#fff">
+        <span color="secundary" showWhen="ios">Cancel</span>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="plataforma">
+      <ion-button (click)="cancelar()" style="color:#fff" slot="end">
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="validacion()">
+    <div>
+      <p class="parrafo">Descripción</p>
+      <div class="input-container">
+        <ion-icon name="create" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="" name="usrnm" formControlName="descripcion" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.descripcion"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Url de curso</p>
+      <div class="input-container">
+        <ion-icon name="code" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="Añade el link del video aquí" name="usrnm" 
+        formControlName="url"
+          required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.url"></app-error-messages>
+
+    <ion-item class="itemSelect">
+      <ion-label>Categoría</ion-label>
+      <ion-select formControlName="idCategoria" interface="action-sheet">
+        <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.descripcion}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <app-error-messages [control]="formGroup.controls.idCategoria"></app-error-messages>
+
+  </form>
+</ion-content>
+
+<ion-footer>
+  <form [formGroup]="formGroup" (ngSubmit)="validacion()">
+    <ion-button expand="full" color="icon" type="submit" class="botonFooter">
+      <ion-icon slot="end" name="save"></ion-icon>
+      Aceptar
+    </ion-button>
+  </form>
+</ion-footer>

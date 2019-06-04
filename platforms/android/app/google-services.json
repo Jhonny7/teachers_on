@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "888428906146",
+    "firebase_url": "https://teacherson-38d35.firebaseio.com",
+    "project_id": "teacherson-38d35",
+    "storage_bucket": "teacherson-38d35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888428906146:android:bcb93f05a2d81663",
+        "android_client_info": {
+          "package_name": "mx.com.teacherson.fares"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888428906146-bl0r6g8kv3mki36m26be546ne40mcedv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZEp0_akuHMbfZosl9VZGQCTVuxmMcQ-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888428906146-bl0r6g8kv3mki36m26be546ne40mcedv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

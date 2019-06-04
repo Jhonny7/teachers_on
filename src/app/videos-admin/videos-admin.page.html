@@ -1,0 +1,59 @@
+<ion-header color="icon">
+  <ion-toolbar color="icon">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Cursos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="contenedorSpinner" *ngIf="videos == null || videos.length == 0">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="ionRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list class="margin_top_list">
+    <ion-item-sliding *ngFor="let video of videos" class="animated shake">
+      <ion-item class="margin_top">
+        <ion-avatar slot="start">
+          <img [src]="returnUrl(video)" *ngIf="video.url !== null">
+          <img src="assets/imgs/videos/videos.png" *ngIf="video.url === null">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{video.descripcion}}</h2>
+          <h3>Categoría: {{video.categoria_descripcion}}</h3>
+          <p>Fecha de creación: {{video.fecha}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end" class="margin_top">
+        <ion-item-option (click)="editar(video)">
+          <div class="divText">
+            <div>Editar</div>
+            <ion-icon name="construct"></ion-icon>
+          </div>
+        </ion-item-option>
+        <ion-item-option (click)="eliminar(video)" color="danger">
+          <div class="divText">
+            <div>Borrar</div>
+            <ion-icon name="trash"></ion-icon>
+          </div>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="user.id_rol == 1 && videos !== null && videos.length > 0"
+    class="animated swing">
+    <ion-fab-button color="dark" (click)="openCrud(1)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

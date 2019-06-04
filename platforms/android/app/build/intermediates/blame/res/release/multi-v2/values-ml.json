@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/macpro/Documents/IonicProjects/Juan/personal/teachers_on/platforms/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-ml/values-ml.xml",
+            "map": [
+                {
+                    "source": "/Users/macpro/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.2.6.aar/85f9b6524568e3ab6e79304b51e3bda3/res/values-ml/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "218",
+                        "endOffsets": "503"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "218",
+                        "endOffsets": "319"
+                    }
+                },
+                {
+                    "source": "/Users/macpro/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/eece412dfa4c114b691f7927a4e413c2/res/values-ml/values-ml.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "324",
+                        "endColumns": "100",
+                        "endOffsets": "420"
+                    }
+                }
+            ]
+        }
+    ]
+}

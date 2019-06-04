@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="icon">
+    <ion-title>{{operation}} Patrocinador</ion-title>
+    <ion-buttons slot="start" *ngIf="!plataforma">
+      <ion-button (click)="cancelar()" style="color:#fff">
+        <span color="secundary" showWhen="ios">Cancel</span>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="plataforma">
+      <ion-button (click)="cancelar()" style="color:#fff" slot="end">
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="categoriaFoto">
+    <img src="assets/imgs/patrocinadores/patrocinadores.png" alt="" *ngIf="patrocinador === null && imgBase64 === null"
+      (click)="openOptionsSelect()">
+    <img src="{{imgBase64}}" alt="" *ngIf="imgBase64 !== null" (click)="openOptionsSelect()">
+    <img src="{{patrocinador.img_base64}}" alt="" *ngIf="imgBase64 === null && patrocinador !== null && patrocinador.img_base64 !== null"
+      (click)="openOptionsSelect()">
+    <img src="{{patrocinador.img_url}}" alt="" *ngIf="imgBase64 === null && patrocinador !== null && patrocinador.img_base64 === null && patrocinador.img_url !== null"
+      (click)="openOptionsSelect()">
+  </div>
+  <form [formGroup]="formGroup" (ngSubmit)="validacion()">
+    <div>
+      <p class="parrafo">Nombre del Patrocinador*</p>
+      <div class="input-container">
+        <ion-icon name="create" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="" name="usrnm" formControlName="descripcion" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.descripcion"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Url de imagen</p>
+      <div class="input-container">
+        <ion-icon name="code" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="Puedes seleccionar una imagen de galería" name="usrnm"
+          formControlName="imgUrl" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.imgUrl"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Url de la página web*</p>
+      <div class="input-container">
+        <ion-icon name="code-working" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="" name="usrnm" formControlName="url" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.url"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Información adicional*</p>
+      <div class="input-container">
+        <ion-icon name="construct" class="icon"></ion-icon>
+        <textarea rows="2" cols="50" class="input-field" formControlName="informacion" required>
+            </textarea>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.informacion"></app-error-messages>
+    <div *ngIf="patrocinador !== null">
+      <ion-item class="itemSelect">
+        <ion-label>Estatus</ion-label>
+        <ion-select formControlName="idStatus"  interface="action-sheet">
+          <ion-select-option value="1">Activo</ion-select-option>
+          <ion-select-option value="2">Inactivo</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <app-error-messages [control]="formGroup.controls.idStatus"></app-error-messages>
+    </div>
+
+  </form>
+
+
+</ion-content>
+<ion-footer>
+  <form [formGroup]="formGroup" (ngSubmit)="validacion()">
+    <ion-button expand="full" color="icon" type="submit" class="botonFooter">
+      <ion-icon slot="end" name="save"></ion-icon>
+      Aceptar
+    </ion-button>
+  </form>
+</ion-footer>

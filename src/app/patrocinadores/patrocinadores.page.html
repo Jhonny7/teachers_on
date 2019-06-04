@@ -1,0 +1,54 @@
+<ion-header color="icon">
+  <ion-toolbar color="icon">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Patrocinadores
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="ionRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="contenedorSpinner" *ngIf="patrocinadores == null || patrocinadores.length == 0">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <!-- <div class="cardPatrocinador">
+    <div class="imagen">
+      <img src="assets/imgs/categoria/categoria.png">
+    </div>
+    <div class="contenido">
+      <h2>Ejemplo de Titulo</h2>
+      <h3>Ejemplo de texto</h3>
+      <a href="">www.youtube.com</a>
+    </div>
+  </div> -->
+
+  <ion-card *ngFor="let patrocinador of patrocinadores" class="animated pulse">
+    <img src="{{patrocinador.img_url}}" class="imagenCard" alt="" *ngIf="patrocinador.img_url !== null" (click)="openOptionsSelect(patrocinador)">
+    <img src="{{patrocinador.img_base64}}" class="imagenCard" alt="" *ngIf="patrocinador.img_base64 !== null" (click)="openOptionsSelect(patrocinador)">
+    <img src="assets/imgs/patrocinadores/patrocinadores.png" class="imagenCard" alt="" 
+    *ngIf="patrocinador.img_base64 === null && patrocinador.img_url === null" (click)="openOptionsSelect(patrocinador)">
+    <ion-card-header>
+      <ion-card-subtitle (click)="openLink(patrocinador.url)"><a href="">{{patrocinador.url}}</a></ion-card-subtitle>
+      <ion-card-title (click)="openOptionsSelect(patrocinador)">{{patrocinador.descripcion}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content style="text-align: justify;" (click)="openOptionsSelect(patrocinador)">
+        {{patrocinador.informacion}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="user.id_rol == 1 && patrocinadores !== null && patrocinadores.length > 0"
+      class="animated swing">
+      <ion-fab-button color="dark" (click)="openCrud(1)">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

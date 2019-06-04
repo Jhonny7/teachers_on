@@ -1,0 +1,33 @@
+.cardPatrocinador {
+  padding: 8px;
+  border-bottom: 1px solid #e2e2e2;
+  .imagen {
+    display: inline-block;
+    width: 25%;
+    vertical-align: super;
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .contenido {
+    display: inline-block;
+    width: 70%;
+    margin-left: 5%;
+    h2 {
+      margin-top: 0px;
+      margin-bottom: -9px;
+    }
+    h3 {
+    }
+    a {
+    }
+  }
+}
+
+.imagenCard{
+    width: 150px;
+    height: 150px;
+    /* margin-left: 18px; */
+    padding: 20px;
+}

@@ -7,14 +7,14 @@
             background-size: 100%;
             background-position: center 47%;
             height: 111px;">
-          <img src="assets/imgs/logo/logoT.png" alt="Fry" class="animated myImagen" style="
+          <img src="assets/imgs/logo2.png" alt="Fry" class="animated myImagen" style="
           top: 10px !important;
           left: 9px !important;
           height: 50px !important;
           border-radius: 0px !important;
           width: 48px !important;
           position: absolute;
-          opacity: 0.3;">
+          opacity: 0;">
           <div class="menu-bottom" style="color: #ffffff;
           font-size: x-large;
           text-shadow: 1px 1px 3px #171717b5;
@@ -28,17 +28,36 @@
         </div>
       </ion-header>
       <ion-content>
-        <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+        <ion-list no-lines lines="none">
+          <div *ngFor="let p of pages">
+            <ion-menu-toggle>
+              <ion-item  menuClose class="item item-icon-right" (click)="openPage(p)" style="box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.07);">
+                <img src="assets/imgs/{{p.img}}" alt="logo" style="    /* height: 35%; */
+                    width: 11%;
+                    margin-top: 2px;
+                    position: absolute;" />
+                <h2 style="display: inline-block;
+                    margin-left: 50px;
+                    margin-top: 14px;
+                    font-size: 139%;
+                    font-weight: 200;
+                    font-family: inherit;">{{
+                  p.nombre }}</h2>
+              </ion-item>
+            </ion-menu-toggle>
+          </div>
         </ion-list>
       </ion-content>
+      <ion-footer showWhen="android" no-lines lines="none" no-border>
+        <ion-toolbar>
+          <div>
+            <ion-button style="width: 48%;" (click)="exitApp()" color="icon">
+              <ion-icon name="close-circle" class="botonFooter"></ion-icon>
+              Salir
+            </ion-button>
+          </div>
+        </ion-toolbar>
+      </ion-footer>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>

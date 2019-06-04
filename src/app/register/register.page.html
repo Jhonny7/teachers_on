@@ -1,9 +1,82 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content padding class="animated fadeIn auth-page" style="">
+  <div class="title">Regístrate en Teachers On</div>
+  <div class="separador"></div>
+  <div class="categoriaFoto">
+    <img src="assets/imgs/usuarios/user.svg" alt="" *ngIf="imgBase64 === null" (click)="openOptionsSelect()">
+    <img src="{{imgBase64}}" alt="" *ngIf="imgBase64 !== null" (click)="openOptionsSelect()">
+  </div>
 
-<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="verifyShields()">
+    <div>
+      <p class="parrafo">Nombre</p>
+      <div class="input-container">
+        <ion-icon name="create" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="" name="usrnm" formControlName="nombre" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.nombre"></app-error-messages>
 
+    <div>
+      <p class="parrafo">Apellido Paterno</p>
+      <div class="input-container">
+        <ion-icon name="male" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="" name="usrnm" formControlName="apellidoPaterno" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.apellidoPaterno"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Apellido Materno</p>
+      <div class="input-container">
+        <ion-icon name="female" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="" name="usrnm" formControlName="apellidoMaterno">
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.apellidoMaterno"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Correo Electrónico</p>
+      <div class="input-container">
+        <ion-icon name="mail" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="" name="usrnm" formControlName="email" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.email"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Username</p>
+      <div class="input-container">
+        <ion-icon name="key" class="icon"></ion-icon>
+        <input class="input-field" type="text" placeholder="" name="usrnm" formControlName="username" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.username"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Contraseña</p>
+      <div class="input-container">
+        <ion-icon name="key" class="icon"></ion-icon>
+        <input class="input-field" type="password" placeholder="" name="usrnm" formControlName="password" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.password"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Confirmar Contraseña</p>
+      <div class="input-container">
+        <ion-icon name="finger-print" class="icon"></ion-icon>
+        <input class="input-field" type="password" placeholder="" name="usrnm" formControlName="passwordConfirm"
+          required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.passwordConfirm"></app-error-messages>
+  </form>
 </ion-content>
+<ion-footer>
+  <form [formGroup]="formGroup" (ngSubmit)="verifyShields()">
+    <ion-button expand="full" color="icon" type="submit" class="botonFooter">
+      <ion-icon slot="end" name="save"></ion-icon>
+      Aceptar
+    </ion-button>
+  </form>
+</ion-footer>

@@ -1,0 +1,63 @@
+<ion-header color="icon">
+  <ion-toolbar color="icon">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="animated bounceInRight">{{video.descripcion}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <iframe [src]="video.temporal" frameborder="0" class="videoFrame" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div>
+    <div class="descripcion">
+      {{video.descripcion}}
+    </div>
+
+    <div class="contenedorLikes">
+      <div class="contenedor" (click)="addLikeVideo()" [ngStyle]="{'color': blueLike ? '#0079ff' : '#929294'}">
+        <ion-icon name="happy" [ngStyle]="{'color': blueLike ? '#0079ff' : '#929294'}"></ion-icon>
+        <div>Me gusta</div>
+      </div>
+      <div class="contenedor" (click)="removeLikeVideo()" [ngStyle]="{'color': blueNoLike ? '#0079ff' : '#929294'}">
+        <ion-icon name="sad" [ngStyle]="{'color': blueNoLike ? '#0079ff' : '#929294'}"></ion-icon>
+        <div>No me gusta</div>
+      </div>
+      <div class="contenedor" (click)="compartir()">
+        <ion-icon name="share-alt"></ion-icon>
+        <div>Compartir</div>
+      </div>
+    </div>
+    
+    <div class="separador"></div>
+    <div class="comentarios" *ngIf="comentarios !== null">Comentarios <strong>{{comentarios.length}}</strong></div>
+    <div class="comentarios" *ngIf="comentarios === null">Comentarios <strong>0</strong></div>
+    <ion-list>
+      <ion-item class="margin_top animated fadeIn" *ngFor="let comentario of comentarios">
+        <div class="avatar">
+          <ion-avatar slot="start">
+            <img src="assets/imgs/usuarios/user.svg" *ngIf="comentario.img_base64 === null">
+            <img src="{{comentario.img_base64}}" *ngIf="comentario.img_base64 !== null">
+          </ion-avatar>
+        </div>
+        <ion-label>
+          <h2 class="titulo">{{comentario.nombre}}</h2>
+          <p class="parrafo">{{comentario.comentario}}</p>
+          <p class="fecha">{{comentario.fecha}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="divFooter">
+      <ion-input placeholder="Escribe un comentario" [(ngModel)]="comentario"></ion-input>
+      <ion-icon name="send" (click)="sendComment()"></ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-footer>

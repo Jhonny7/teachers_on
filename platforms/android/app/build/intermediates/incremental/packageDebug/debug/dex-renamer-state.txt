@@ -1,4 +1,4 @@
-#Fri May 10 14:27:10 CDT 2019
+#Wed May 29 11:20:20 CDT 2019
 base.0=/Users/macpro/Documents/IonicProjects/Juan/personal/teachers_on/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

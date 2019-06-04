@@ -1,0 +1,31 @@
+<ion-header color="icon">
+  <ion-toolbar color="icon">
+
+    <ion-buttons slot="start" *ngIf="!search" class="animated bounceInRight">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <!-- <ion-icon name="search" slot="end" class="icono" (click)="habilitarBusqueda()" *ngIf="!search"></ion-icon>
+    <ion-icon name="search" slot="end" class="icono" (click)="busqueda()" *ngIf="search"></ion-icon>
+    <ion-icon name="close" slot="end" class="icono" (click)="habilitarBusqueda()" *ngIf="search"></ion-icon> -->
+
+    <!-- <ion-searchbar class="animated bounceInLeft" [(ngModel)]="buscar" *ngIf="search"></ion-searchbar> -->
+
+    <ion-title *ngIf="!search" class="animated bounceInRight">Videos de {{categoria}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="contenedorSpinner" *ngIf="videos === null || videos.length === 0">
+    <ion-spinner></ion-spinner>
+  </div>
+  <div>
+    <div class="frame animated bounceInDown" *ngFor="let video of videos" (click)="openVideo(video)">
+      <!-- <iframe [src]="video.temporal" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe> -->
+      <img [src]="video.temporal" *ngIf="video.temporal !== null" class="imagenYou">
+      <img src="assets/imgs/videos/videos.png" *ngIf="video.temporal === null" class="imagenYou">
+      <div>{{video.descripcion}}</div>
+    </div>
+  </div>
+</ion-content>

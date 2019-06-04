@@ -1,0 +1,59 @@
+<ion-header color="icon">
+  <ion-toolbar color="icon">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Usuarios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="contenedorSpinner" *ngIf="usuarios == null || usuarios.length == 0">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="ionRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-list class="margin_top_list">
+    <ion-item-sliding *ngFor="let usuario of usuarios" class="animated tada">
+      <ion-item class="margin_top">
+        <ion-avatar slot="start">
+          <img src="{{usuario.img}}" *ngIf="usuario.img !== null">
+          <img src="assets/imgs/usuarios/user.svg" *ngIf="usuario.img === null">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{usuario.nombre}} {{usuario.apellidoPaterno}} {{usuario.apellidoMaterno}}</h2>
+          <h3>{{usuario.email}}</h3>
+          <p>Fecha de creación: {{usuario.fecha}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end" class="margin_top">
+        <ion-item-option (click)="editar(usuario)">
+          <div class="divText">
+            <div>Editar</div>
+            <ion-icon name="construct"></ion-icon>
+          </div>
+        </ion-item-option>
+        <ion-item-option (click)="eliminar(usuario)" color="danger">
+          <div class="divText">
+            <div>Borrar</div>
+            <ion-icon name="trash"></ion-icon>
+          </div>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="user.id_rol == 1 && usuarios !== null && usuarios.length > 0"
+    class="animated swing">
+    <ion-fab-button color="dark" (click)="openCrud(1)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

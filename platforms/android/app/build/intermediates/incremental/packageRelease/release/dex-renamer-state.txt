@@ -1,0 +1,4 @@
+#Wed May 29 11:31:22 CDT 2019
+base.0=/Users/macpro/Documents/IonicProjects/Juan/personal/teachers_on/platforms/android/app/build/intermediates/transforms/dex/release/0
+path.0=classes.dex
+renamed.0=classes.dex

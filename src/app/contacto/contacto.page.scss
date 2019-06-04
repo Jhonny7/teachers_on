@@ -1,0 +1,32 @@
+.container {
+  text-align: center;
+  .imgContainer {
+    margin-bottom: 6%;
+    img {
+      width: 36%;
+    }
+  }
+  .name {
+    font-size: 1.3em;
+    font-family: sans-serif;
+  }
+  .version {
+    font-size: 0.9em;
+    font-family: sans-serif;
+  }
+}
+
+.description {
+  text-align: center;
+}
+.redes {
+  width: 100%;
+  text-align: center;
+  div {
+    margin: 10px;
+  }
+}
+.facebook {
+  text-decoration: underline;
+  color: #5894ff;
+}

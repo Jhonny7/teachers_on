@@ -91,6 +91,9 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
+apply from: "../cordova-plugin-fcm-with-dependecy-updated/fares-FCMPlugin.gradle"
+apply from: "../cordova-plugin-badge/fares-badge.gradle"
+apply from: "../cordova-plugin-local-notification/fares-localnotification.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -266,6 +269,10 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     compile "com.android.support:support-annotations:27.+"
+    compile "com.android.support:support-v4:24.1.1+"
+    compile "com.google.firebase:firebase-core:10.+"
+    compile "com.google.firebase:firebase-messaging:10.+"
+    compile "com.android.support:support-v4:26.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="icon">
+    <ion-title>Cambio de Contraseña</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="formGroup" (ngSubmit)="verifyShields()">
+    <div>
+      <p class="parrafo">Contraseña actual</p>
+      <div class="input-container">
+        <ion-icon name="key" class="icon"></ion-icon>
+        <input class="input-field" type="password" placeholder="" name="usrnm" formControlName="password1" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.password1"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Nueva contraseña</p>
+      <div class="input-container">
+        <ion-icon name="key" class="icon"></ion-icon>
+        <input class="input-field" type="password" placeholder="" name="usrnm" formControlName="password2" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.password2"></app-error-messages>
+
+    <div>
+      <p class="parrafo">Confirmar nueva contraseña</p>
+      <div class="input-container">
+        <ion-icon name="finger-print" class="icon"></ion-icon>
+        <input class="input-field" type="password" placeholder="" name="usrnm" formControlName="password3" required>
+      </div>
+    </div>
+    <app-error-messages [control]="formGroup.controls.password3"></app-error-messages>
+  </form>
+
+</ion-content>
+
+<ion-footer>
+  <form [formGroup]="formGroup" (ngSubmit)="verifyShields()">
+    <ion-button expand="full" color="icon" type="submit" class="botonFooter">
+      <ion-icon slot="end" name="save"></ion-icon>
+      Aceptar
+    </ion-button>
+  </form>
+</ion-footer>
